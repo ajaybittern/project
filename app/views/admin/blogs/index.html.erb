@@ -1,4 +1,4 @@
-<div class="col-md-8" style="margin-left: 300px;">
+<div  style="margin-left: 300px;">
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
@@ -12,7 +12,6 @@ To date
 <%= date_field(:user, :startdate) %>
 From  date
 <%= date_field(:user, :startdate) %>
-<%= submit_tag "search" %> 
 <br><br>
 <%#= @data = Blog.where("startdate >= from_date AND startdate <= to_date")%>
 
@@ -37,9 +36,9 @@ From  date
 
         <td><%= blog.category %></td>
         <td><%= blog.description %></td>
-        <td><%= link_to 'Show', blog, :class=> "btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog), :class=> "btn btn-info" %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "btn btn-info" %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,6 +46,6 @@ From  date
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path, :class=> "btn btn-info" %>
+<%= link_to 'New Blog', new_blog_path %>
 <%end%>
 </div>

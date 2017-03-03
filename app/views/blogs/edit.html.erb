@@ -1,8 +1,10 @@
-<div  style="margin-left: 500px;">
+<div class="col-md-4" style="margin-left: 500px;">
+
 <h1>Editing Blog</h1>
 
 <%= render 'form', blog: @blog %>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to 'Show', @blog, :class=> "btn btn-info" %> |
+<%= link_to 'Back', blogs_path, :class=> "btn btn-info" %>
+</div>
 </div>

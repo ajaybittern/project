@@ -10,7 +10,7 @@ permit_params :list, :of, :attributes, :on, :model, :name, :name
         number_to_currency product.name
       end
     end
-    default_actions
+    actions
   end
 end
 
