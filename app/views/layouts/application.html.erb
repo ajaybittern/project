@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+   <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%#= csrf_meta_tags %>
+
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body>
+       
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Test Project</a>
+    </div>
+     <% if user_signed_in? %>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/blogs">Blog</a></li>
+     <!--  <li><a href="/comments">Comment</a></li> -->
+    </ul>
+    <%end%>
+    <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      
+    </li>
+    <%else%>
+      <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <%end%>
+    </ul>
+  </div>
+</nav>
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+     
+   
+
+    <%= yield %>
+  </body>
+</html>

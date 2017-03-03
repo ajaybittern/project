@@ -1,0 +1,53 @@
+<div  style="margin-left: 500px;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%#= @blog.image %>
+  <%=image_tag @blog.image, :size=>10*10%>
+<!--   <img src="<%= @blog.image%>" alt="Smiley face" height="42" width="42">
+ -->  <%#= image_tag(@blog.image, :alt => "rss feed") %>
+<!--   <img src="<%=@blog.image%>" alt="edit" /> -->
+  <%#= image_tag @blog.image, :width=>"50px", :height=>"50px"%>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @blog.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blog.description %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+
+<h2>Comments</h2>
+<% @blog.comments.each do |comment| %>
+
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.title %>
+  </p>
+<% end %>
+
+
+
+<h2>Add a comment:</h2>
+<%= form_for([@blog, @blog.comments.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
