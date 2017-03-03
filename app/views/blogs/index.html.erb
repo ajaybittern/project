@@ -11,8 +11,9 @@
 To date
 <%= date_field(:user, :startdate) %>
 From  date
-<%= date_field(:user, :enddate) %>
+<%= date_field(:user, :startdate) %>
 <br><br>
+<%#= @data = Blog.where("startdate >= from_date AND startdate <= to_date")%>
 
 
 <table>
@@ -22,6 +23,7 @@ From  date
       <th>Image</th>
       <th>Category</th>
       <th>Description</th>
+      <th>Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,7 +38,7 @@ From  date
         <td><%= blog.description %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy',  blog,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
